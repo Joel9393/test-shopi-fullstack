@@ -11,12 +11,18 @@
     "generate": "shopify app generate",
     "deploy": "shopify app deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+    "test-dev-app": "file:"
+  },
   "author": "alejandrofantasticfy",
   "private": true,
   "workspaces": [
     "extensions/*",
     "web",
     "web/frontend"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "vite": "^5.4.14"
+  }
 }

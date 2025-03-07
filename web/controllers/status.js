@@ -1,7 +1,10 @@
 import { shopify } from "../core/index.js";
 
-const PRODUCTS_COUNT = `{
+const STATUS_QUERY = `query {
   productsCount {
+    count
+  }
+  customersCount {
     count
   }
 }`;
@@ -23,15 +26,17 @@ export const statusController = {
       const client = new shopify.api.clients.Graphql({ session });
 
       const {
-        data: {
-          productsCount: { count: products },
-        },
-      } = await client.request(PRODUCTS_COUNT);
+        body: { data },
+      } = await client.query({ data: STATUS_QUERY });
 
-      res.status(200).json({ products });
+      const {
+        productsCount: { count: products },
+        customersCount: { count: customers },
+      } = data;
+
+      res.status(200).json({ products, customers });
     } catch (error) {
       console.log(error);
-
       res.status(400).send();
     }
   },

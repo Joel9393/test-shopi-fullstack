@@ -1,14 +1,17 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "bee4c65350285700aa7cc6825a78acc2"
-name = "Test App"
-handle = "test-app-7134"
-application_url = "https://northern-policy-academy-israeli.trycloudflare.com"
+client_id = "a3215de4ce6d165e0d4700973cb2c033"
+application_url = "https://necessarily-slight-guns-das.trycloudflare.com"
 embedded = true
+name = "test-dev-app2"
+handle = "test-dev-app2"
 
 [build]
+include_config_on_deploy = true
 automatically_update_urls_on_dev = true
-dev_store_url = "fantasticfy-training-apps.myshopify.com"
+
+[webhooks]
+api_version = "2025-01"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -16,22 +19,10 @@ scopes = "write_products,write_shipping"
 
 [auth]
 redirect_urls = [
-  "https://northern-policy-academy-israeli.trycloudflare.com/auth/callback",
-  "https://northern-policy-academy-israeli.trycloudflare.com/auth/shopify/callback",
-  "https://northern-policy-academy-israeli.trycloudflare.com/api/auth/callback"
+  "https://necessarily-slight-guns-das.trycloudflare.com/auth/callback",
+  "https://necessarily-slight-guns-das.trycloudflare.com/auth/shopify/callback",
+  "https://necessarily-slight-guns-das.trycloudflare.com/api/auth/callback"
 ]
-
-[webhooks]
-api_version = "2023-10"
-
-  [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/webhooks"
-
-[app_proxy]
-url = "https://northern-policy-academy-israeli.trycloudflare.com/prapi"
-subpath = "api-bbva"
-prefix = "apps"
 
 [pos]
 embedded = false
